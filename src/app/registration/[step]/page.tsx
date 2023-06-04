@@ -23,10 +23,10 @@ export default function Page({ params }: { params: { step: string } }) {
   }
 
   return (
-    <main className='min-h-screen bg-neutral-magnolia'>
-      <div className='bg-neutral-white'>
+    <main className='min-h-screen bg-neutral-magnolia lg:flex lg:items-center lg:justify-center'>
+      <div className='rounded bg-neutral-white lg:flex lg:gap-20 lg:rounded-xl lg:p-4 lg:shadow-lg'>
         <Sidebar step={step} />
-        <section className='absolute top-24 mx-4 rounded-lg bg-neutral-white px-6 py-8 shadow-lg shadow-neutral-cool-gray/20'>
+        <section className='absolute left-2 right-2 top-24 mx-4 rounded-lg bg-neutral-white px-6 py-8 shadow-lg shadow-neutral-cool-gray/20 lg:static lg:flex lg:flex-col lg:pb-0 lg:shadow-none'>
           {step.path === 'your-info' && <YourInfo />}
           {step.path === 'select-plan' && <form>Select plan</form>}
           {step.path === 'add-ons' && <form>Adds on</form>}
@@ -39,12 +39,12 @@ export default function Page({ params }: { params: { step: string } }) {
 
 function Sidebar({ step }: { step: Step }) {
   return (
-    <nav className='bg-mobile-sidebar-stepper bg-no-repeat'>
-      <ol className='flex justify-center gap-4 pb-20 pt-8'>
+    <nav className='bg-mobile-sidebar-stepper bg-cover bg-no-repeat lg:h-[80vh] lg:w-80 lg:rounded-xl lg:bg-desktop-sidebar-stepper'>
+      <ol className='flex justify-center gap-4 pb-20 pt-8 lg:flex-col lg:px-7'>
         {steps.map(({ title }, idx) => {
           const index = idx + 1;
           return (
-            <li key={idx}>
+            <li key={idx} className='lg:flex lg:items-center lg:gap-4'>
               <div
                 className={`h-9 w-9 rounded-full border-2 p-1 text-center font-bold text-neutral-white ${
                   step.title === title
@@ -54,9 +54,9 @@ function Sidebar({ step }: { step: Step }) {
               >
                 {index}
               </div>
-              <div className='hidden'>
-                <p>Step {index}</p>
-                <p>{title}</p>
+              <div className='hidden uppercase lg:block'>
+                <p className='text-sm'>Step {index}</p>
+                <p className='font-medium text-neutral-magnolia'>{title}</p>
               </div>
             </li>
           );
@@ -73,7 +73,7 @@ function YourInfo() {
         title='Personal info'
         description='Please provide your name, email address, and phone number.'
       />
-      <div className='flex flex-col gap-3'>
+      <div className='flex flex-col gap-3 lg:gap-6'>
         <Input
           id='name'
           name='name'
@@ -112,8 +112,8 @@ function Header({
   description: string;
 }) {
   return (
-    <header className='pb-4'>
-      <h1 className='pb-2 text-2xl font-bold text-primary-marine-blue'>
+    <header className='pb-4 lg:pb-6'>
+      <h1 className='pb-2 text-xl font-bold text-primary-marine-blue lg:text-3xl'>
         {title}
       </h1>
       <p>{description}</p>
@@ -130,7 +130,7 @@ function NavigationButtons({
     <nav
       className={`fixed bottom-0 left-0 right-0 flex bg-neutral-white p-4 ${
         variant === 'first' && 'justify-end'
-      }`}
+      } lg:static lg:mt-auto`}
     >
       {(variant === 'middle' || variant === 'last') && <button>Go Back</button>}
       {(variant === 'first' || variant === 'middle') && (

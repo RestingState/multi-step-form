@@ -25,6 +25,8 @@ module.exports = {
       backgroundImage: {
         'mobile-sidebar-stepper':
           "url('./assets/images/bg-sidebar-mobile.svg')",
+        'desktop-sidebar-stepper':
+          "url('./assets/images/bg-sidebar-desktop.svg')",
       },
     },
   },

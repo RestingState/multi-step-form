@@ -1,7 +1,7 @@
 import './globals.css';
-import { Ubuntu } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
-const ubuntu = Ubuntu({ subsets: ['latin'], weight: ['400', '500', '700'] });
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
 export const metadata = {
   title: 'Mutli step form',
@@ -15,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={ubuntu.className}>{children}</body>
+      <body className={`${inter.className} text-neutral-cool-gray`}>
+        {children}
+      </body>
     </html>
   );
 }

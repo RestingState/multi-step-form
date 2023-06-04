@@ -7,6 +7,8 @@ module.exports = {
   ],
   theme: {
     colors: {
+      transparent: 'background-color: transparent',
+
       'primary-marine-blue': 'hsl(213, 96%, 18%)',
       'primary-purplish-blue': 'hsl(243, 100%, 62%)',
       'primary-pastel-blue': 'hsl(228, 100%, 84%)',
@@ -19,7 +21,12 @@ module.exports = {
       'neutral-alabaster': 'hsl(231, 100%, 99%)',
       'neutral-white': 'hsl(0, 0%, 100%)',
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'mobile-sidebar-stepper':
+          "url('./assets/images/bg-sidebar-mobile.svg')",
+      },
+    },
   },
   plugins: [],
 };
